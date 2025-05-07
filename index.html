@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QA Quality Checker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <div class="project-name-section">
+      <input type="text" id="projectName" placeholder="Введите название проекта">
+    </div>
+    <div class="progress-section">
+      <div class="progress-text" id="progressText">0/0 вопросов</div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+    <h1>Проверка качества тестирования</h1>
+    <div class="content-wrapper">
+      <div class="left-column">
+        <div id="formContainer"></div>
+        <button id="showResultAndSecondaryBtn" style="display: none;">Показать результат и дополнительные вопросы</button>
+        <div id="additionalFormContainer" style="display: none;"></div>
+      </div>
+      <div class="right-column">
+        <div id="result"></div>
+        <div id="recommendationsArea"></div>
+        <button id="sendEmailBtn" style="display: none;">Отправить результат на почту</button>
+        <button id="submitBtn">Результаты</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+/* Основные стилевые установки */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #2c3e50;
+}
+.question {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.question p {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+.answers label {
+  display: block;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 2px solid #dfe4ea;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.answers input {
+  margin-right: 10px;
+}
+.answers label:hover {
+  background: #ecf0f1;
+  border-color: #bdc3c7;
+}
+.answers input:checked + span {
+  font-weight: 700;
+  color: #2980b9;
+}
+#submitBtn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 20px; /* Added to space it from recommendations above */
+}
+#submitBtn:hover {
+  background: #1f6391;
+}
+#result {
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 20px; /* Space between columns */
+}
+
+.left-column {
+  flex: 2; /* Takes up 2/3 of the space */
+}
+
+.right-column {
+  flex: 1; /* Takes up 1/3 of the space */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 20px;
+  margin-top: 0; /* Reset margin if #result had one before */
+  position: sticky;
+  top: 20px; /* Adjust this value based on your header or desired offset */
+  align-self: flex-start; /* Important for sticky elements in a flex container */
+  max-height: calc(100vh - 40px); /* Example: viewport height minus top offset and some bottom padding */
+  overflow-y: auto; /* Allows scrolling within the right column if its content is too tall */
+}
+
+#recommendationsArea {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #dfe4ea;
+}
+
+#recommendationsArea h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+#recommendationsArea ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+#recommendationsArea li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+#additionalFormContainer {
+  display: block;
+  margin-top: 20px;
+}
+
+/* Remove styles for #showAdditionalBtn 
+#showAdditionalBtn {
+  display: none; 
+  width: 100%;
+  padding: 12px;
+  font-size: 0.95em;
+  background-color: #3498db; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#showAdditionalBtn:hover {
+  background-color: #2980b9;
+}
+*/
+
+/* Progress Bar Styles */
+.progress-section {
+  margin-bottom: 25px;
+  padding: 0 20px; /* Match main padding */
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  height: 12px;
+  overflow: hidden; /* Ensures inner bar respects border radius */
+}
+
+.progress-bar {
+  width: 0%; /* Initial width */
+  height: 100%;
+  background-color: #2980b9; /* Same as submit button */
+  border-radius: 8px;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Remove or comment out the old .selected-answer style */
+/*
+.answers label.selected-answer {
+  background-color: #d6eaf8; 
+  border-color: #2980b9;
+  font-weight: bold; 
+}
+
+.answers label.selected-answer span {
+  color: #1f6391; 
+}
+*/
+
+/* New styles for color-coded answers */
+.answers label.answer-yes {
+  background-color: #e8f5e9; /* Light Green */
+  border-color: #4caf50;   /* Green */
+  color: #2e7d32;          /* Dark Green for text */
+  font-weight: bold;
+}
+
+.answers label.answer-ambiguous {
+  background-color: #fffde7; /* Light Yellow */
+  border-color: #ffeb3b;   /* Yellow */
+  color: #fbc02d;          /* Dark Yellow for text */
+  font-weight: bold;
+}
+
+.answers label.answer-no {
+  background-color: #ffebee; /* Light Red */
+  border-color: #f44336;   /* Red */
+  color: #c62828;          /* Dark Red for text */
+  font-weight: bold;
+}
+
+/* Styles for the new intermediate button */
+#showResultAndSecondaryBtn {
+  display: none; /* Initially hidden, JS will show it */
+  width: 100%;
+  padding: 12px;
+  font-size: 0.95em;
+  background-color: #16a085; /* A different color, e.g., turquoise/green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#showResultAndSecondaryBtn:hover {
+  background-color: #117a65;
+}
+
+/* Project Name Input Styles */
+.project-name-section {
+  margin-bottom: 20px;
+  padding: 0 20px; /* Match main padding */
+}
+
+#projectName {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1em;
+  border: 1px solid #dfe4ea;
+  border-radius: 8px;
+  box-sizing: border-box; /* Important to include padding and border in the element's total width and height */
+}
+
+/* Email Button Styles */
+#sendEmailBtn {
+  display: none; /* Initially hidden, show when results are available */
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  background: #f39c12; /* Orange color */
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 15px;
+  margin-bottom: 10px; /* Space before the main submit button */
+}
+
+#sendEmailBtn:hover {
+  background: #e67e22;
+} 
